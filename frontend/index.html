@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
-
+    <title>Flask Axios Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    axios.get('/user?ID=12345').then(function (response) { console.log(response)};
+    <h1>Flask Axios Example</h1>
+
+    <div id="result"></div>
+
+    <script>
+        // Axios GET request to Flask backend
+        axios.get('http://localhost:5000/')
+            .then(function (response) {
+                console.log(response.data);
+                document.getElementById('result').innerText = JSON.stringify(response.data);
+            })
+            .catch(function (error) {
+                console.error('Error fetching data:', error);
+            });
+    </script>
 </body>
 </html>
